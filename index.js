@@ -58,7 +58,7 @@ async function uploadFile() {
         body: fs.createReadStream(filePath),
       },
     });
-  NewOne.create( { id:103,
+  NewOne.create( { id:1066,
   name:"file1",
   Fileid:response.data.id,
                   Date:datetime
@@ -68,4 +68,4 @@ async function uploadFile() {
     console.log(error.message);
   }
 }
-uploadFile();
+uploadFile(); 
