@@ -7,13 +7,13 @@ let mongoose =require("mongoose");
 
 let mongoURI="mongodb+srv://n7jIC8HFXMl2cTLN:n7jIC8HFXMl2cTLN@cluster0.ee0u5.mongodb.net/Mydb1?retryWrites=true&w=majority"
 
-mongoose.connect(mongoURI, { useNewUrlParser: true }) .then(() => console.log("MongoDB connected")) .catch((err) => console.log(err));
+mongoose.connect(mongoURI, { useNewUrlParser: false }) .then(() => console.log("MongoDB connected")) .catch((err) => console.log(err));
 
 var NewOne =mongoose.model("NewOne",mongoose.Schema({
   id:Number,
   name:String,
   Fileid:String,
-  date:{
+  Date:{
     type: String,
     default:datetime
   }
@@ -61,7 +61,8 @@ async function uploadFile() {
   NewOne.create( { id:103,
   name:"file1",
   Fileid:response.data.id,
-                 }).then(()=>console.log("success"))
+                  Date:datetime
+                 }).then(()=>console.log("successfully save on drive"))
   .catch(e=>console.log(e))
   } catch (error) {
     console.log(error.message);
